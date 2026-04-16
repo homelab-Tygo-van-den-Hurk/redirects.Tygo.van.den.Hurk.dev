@@ -1,10 +1,20 @@
 ---
 import Base from '../layouts/base.astro';
+import Arrow from '../assets/redirect.responsive.svg';
 ---
 
-<Base title="404 - Not Found">
+<Base title="404: Not Found">
   <div class="text-center">
-    <h1>404: Page not found</h1>
-    <p>Page not found. I recommend going <a href="/">home</a>.</p>
+    <Arrow class="w-64 aspect-square mx-auto" />
+    <h1 class="text-4xl font-bold font-serif text-title mb-6 text-center">
+      404: Page not found
+      <span class="block w-12 h-0.5 bg-accent mx-auto mt-4"></span>
+    </h1>
+    <p class="text-text">
+      Page not found. I recommend going
+      <a href="/" class="text-accent">
+        home
+      </a>.
+    </p>
   </div>
 </Base>

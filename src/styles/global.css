@@ -1,10 +1,12 @@
+@config "../../tailwind.config.mjs";
 @import "tailwindcss";
 
 :root {
   --accent-color: #A155B5;
-  --main-background-color: #FBF8FC;
+  --background-0-color: #FBF8FC;
+  --background-1-color: #e8e6ed;
   --title-color: #03030e;
-  --main-text-color: #707070;
+  --text-color: #707070;
   --shadow-color: #343C3F;
   --border-color: #707070;
 }
@@ -12,14 +14,29 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --accent-color: #C979DD;
-    --main-background-color: #14181B;
+    --background-0-color: #14181B;
+    --background-1-color: #1D2226;
     --title-color: #fcf7fe;
-    --main-text-color: #909090;
+    --text-color: #909090;
     --shadow-color: #b7b7b8;
     --border-color: #909090;
   }
 }
 
+@layer base {
+  :root {
+    --font-sans: "Source Serif Pro", serif;
+    --font-serif: "Old Standard TT", serif;
+  }
+}
+
+@layer components {
+  .content-width {
+    @apply max-w-content-max w-content min-w-content-min;
+  }
+}
+
+/* 
 :root {
   --tw-shadow-color: var(--shadow-color);
 }
@@ -32,4 +49,4 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--title-color);
-}
+} */

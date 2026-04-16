@@ -1,0 +1,90 @@
+---
+import Node, { type Props as NodeProps } from '../layouts/node.astro';
+import Leaf, { type Props as LeafProps } from '../layouts/leaf.astro';
+import { data, type YamlNode } from '../utils/yaml';
+
+type Entry = (NodeProps | LeafProps);
+
+type Return = Entry[];
+
+export async function getStaticPaths() {
+
+  function normalizeSegment(key: string) {
+    return key
+      .toLowerCase()
+      .replaceAll(/[ @#%$!/_]/g, '-')
+      .replaceAll(/-+/g, '-');
+  }
+
+  function flatten(obj: YamlNode, prefix = ''): Return {
+    let result: Return = [];
+
+    const entries: [string, any][] = Object.entries(obj);
+
+    for (const [key, value] of entries) {
+      const segment = normalizeSegment(key);
+      const slug = prefix ? `${prefix}/${segment}` : `/${segment}`;
+
+      if (typeof value === 'string') {
+        result.push({
+          type: 'leaf',
+          name: key,
+          url: value,
+          slug,
+        } satisfies LeafProps);
+      } else {
+        const children = flatten(value, slug);
+
+        result.push({
+          type: 'node',
+          name: key,
+          slug,
+          children: Object.fromEntries(
+            children
+              .filter(c => c.type === 'leaf')
+              .map(c => [c.name, c.slug])
+          ),
+        } satisfies NodeProps);
+
+        result.push(...children);
+      }
+    }
+
+    return result;
+  }
+
+  const flat = flatten(data);
+
+  // ROOT NODE (this is the missing piece)
+  const rootChildren = Object.fromEntries(
+    flat
+      .filter(e => e.type === 'node' || e.type === 'leaf')
+      .filter(e => !e.slug.includes('/', 1)) // only first-level children
+      .map(e => [e.name, e.slug])
+  );
+
+  const root: NodeProps = {
+    type: 'node',
+    name: 'root',
+    slug: '/',
+    children: rootChildren,
+  };
+
+  const all = [root, ...flat];
+
+  return all.map(entry => ({
+    params: {
+      slug: entry.slug === '/' ? '' : entry.slug.replace(/^\//, '')
+    },
+    props: entry,
+  }));
+}
+
+const properties = Astro.props as NodeProps | LeafProps;
+const { type } = properties;
+---
+
+{type === "leaf"
+  ? <Leaf {...(properties as LeafProps)} />
+  : <Node {...(properties as NodeProps)} />
+}

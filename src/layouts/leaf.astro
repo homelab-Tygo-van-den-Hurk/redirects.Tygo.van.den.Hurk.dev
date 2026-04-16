@@ -1,0 +1,36 @@
+---
+import Base from "./base.astro";
+import Footer from "../components/footer.astro"
+import Arrow from '../assets/redirect.responsive.svg';
+
+const { url, name } = Astro.props as Props;
+export interface Props {
+  /** The name of the site or service we're redirecting to. */
+  name: string;
+  /** The url of the site or service we're redirecting to. */
+  url: string;
+  /** The slug this site is located at. */
+  slug: string;
+  /** Allows for discriminating based on the type of the node. */
+  type: "leaf";
+};
+---
+<Base title={`Redirecting to ${name}`}>
+  <!-- <meta slot="head" http-equiv="refresh" content={`0; url=${url}`} /> -->
+  <main class="content-width">
+    <section>
+      <Arrow class="w-64 aspect-square mx-auto" />
+      <h1 class="text-4xl font-bold font-serif text-title mb-6 text-center">
+        Redirecting to {name}
+        <span class="font-bold block w-12 h-0.5 bg-accent mx-auto mt-4"></span>
+      </h1>
+      <p class="text-text block text-center">
+        If you are not redirected automatically, click
+        <a class="text-accent hover:underline" href={url}>
+          here
+        </a>.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Base>

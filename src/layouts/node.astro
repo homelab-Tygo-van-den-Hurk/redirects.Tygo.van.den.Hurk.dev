@@ -1,0 +1,51 @@
+---
+import Footer from "../components/footer.astro";
+import Base from "./base.astro";
+import { data } from "../utils/yaml";
+
+const { contact } = data as { contact: string };
+const { children, slug } = Astro.props as Props;
+export interface Props {
+  /** The name this node. */
+  name: string;
+  /** The children this node has, and URLs to them. */
+  children: Record<string, string>;
+  /** The slug this site is located at. */
+  slug: string;
+  /** Allows for discriminating based on the type of the node. */
+  type: "node";
+};
+---
+
+<Base>
+  <header class="content-width mx-auto text-center">
+    <h1 class="text-5xl font-bold font-serif text-title mb-6 relative">
+      Redirection Station!
+      <span class="block w-12 h-0.5 bg-accent mx-auto mt-4"></span>
+    </h1>
+    <p class="text-justify text-text prose w-full">
+      Howdy there! From here, you can click on any of the links to get
+      where you're supposed to be! As more links become available they'll
+      show up here! If you feel like there's one that's obviously missing,
+      then you can always <a href={contact} class="text-accent hover:underline">get in touch</a>.
+    </p>
+  </header>
+  <main class="content-width mx-auto">
+    <div>
+      <a href={`${slug}/..`} class="block text-accent text-center hover:underline mx-auto w-fit mt-8">
+        Go Back
+      </a>
+    </div>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      {Object.keys(children).map(name => <li>
+          <a href={children[name]} 
+            class="block p-1 rounded-xl border border-accent bg-background-1 hover:bg-accent transition-all text-accent hover:text-title hover:border-title text-center w-full"
+          >
+            {name}
+          </a>
+        </li>
+      )}
+    </ul>
+  </main>
+  <Footer />
+</Base>

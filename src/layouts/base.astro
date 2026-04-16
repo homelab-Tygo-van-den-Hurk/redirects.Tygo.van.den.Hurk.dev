@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import arrow from '../assets/redirect.responsive.svg'
 
 /** The properties each page must have. */
 export interface Props {
@@ -12,7 +13,9 @@ export interface Props {
 const {
   title = "Redirection Station | Tygo van den Hurk",
   description = "Select your destination! from here, you can select any place you'd like to go! And you're be redirected there!!",
-} = Astro.props as Props;
+  class: classNames = "",
+  ...rest
+} = Astro.props as Props & astroHTML.JSX.HtmlHTMLAttributes;
 ---
 
 <!doctype html>
@@ -25,11 +28,14 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={arrow.src} />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <slot name="head" />
   </head>
-  <body>
+  <body class=`bg-background-0 w-screen h-screen flex items-center justify-center flex-col ${classNames ?? ''}` ..rest>
     <slot />
   </body>
 </html>
