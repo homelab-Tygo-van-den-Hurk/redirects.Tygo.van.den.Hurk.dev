@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+/** The properties each page must have. */
+export interface Props {
+  /** The description of the page. */
+  description?: string;
+  /** The title of the page. */
+  title?: string;
+}
+
+const {
+  title = "Redirection Station | Tygo van den Hurk",
+  description = "Select your destination! from here, you can select any place you'd like to go! And you're be redirected there!!",
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="darkreader-lock" />
+    <meta name="author" content="Tygo van den Hurk" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
