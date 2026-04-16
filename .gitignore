@@ -1,3 +1,10 @@
+# Nix build results
+result
+result-*
+
+# Nix generated pre-commit files
+.pre-commit-config.yaml
+
 # generated types
 .astro/
 

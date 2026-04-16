@@ -37,15 +37,16 @@ jobs:
       # - name: Check the links
       #   uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
       #   with: { fail: true, args: redirects.yaml --no-progress --verbose }
-      - name: Setup Pages
-        uses: actions/configure-pages@v5.0.0
-      - name: Set up Node.js
-        uses: actions/setup-node@v6.1.0
-        with: { node-version: 24 }
+      - name: Install Nix using cachix
+        uses: cachix/install-nix-action@616559265b40713947b9c190a8ff4b507b5df49b # v31.10.4
+      - name: Set up Node.js using nix
+        run: nix profile install .#nodejs
       - name: Install all dependencies
         run: npm ci
       - name: Build site
         run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Upload artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with: { path: ./dist }
