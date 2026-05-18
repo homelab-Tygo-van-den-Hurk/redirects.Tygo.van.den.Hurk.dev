@@ -1,7 +1,7 @@
 ---
-import Node, { type Props as NodeProps } from '../layouts/node.astro';
-import Leaf, { type Props as LeafProps } from '../layouts/leaf.astro';
-import { data, type YamlNode } from '../utils/yaml';
+import Node, { type Props as NodeProps } from '#src/layouts/node.astro';
+import Leaf, { type Props as LeafProps } from '#src/layouts/leaf.astro';
+import data, { type YamlNode } from '#src/utils/yaml';
 
 type Entry = (NodeProps | LeafProps);
 

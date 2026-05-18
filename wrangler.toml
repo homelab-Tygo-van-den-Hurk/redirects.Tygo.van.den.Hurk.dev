@@ -1,0 +1,7 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+
+name = "redirects-tygo-van-den-hurk-dev"
+compatibility_date = "2026-05-18"
+
+[assets]
+directory = "./dist"

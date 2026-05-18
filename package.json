@@ -1,5 +1,5 @@
 {
-  "name": "@homelab-tygo-van-den-hurk/redirects.tygo.van.den.hurk.dev",
+  "name": "@homelab-tygo-van-den-hurk/redirects.tygo.van.den.hurk",
   "license": "MIT",
   "description": "This repository holds the source code for the redirect web page. That just redirects traffic to the right url.",
   "homepage": "https://redirects.Tygo.van.den.Hurk.dev/",
@@ -34,8 +34,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && npx wrangler deploy",
+    "preview": "npm run build && npx wrangler dev"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
