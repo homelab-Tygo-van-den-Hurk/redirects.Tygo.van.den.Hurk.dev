@@ -1,7 +1,8 @@
 ---
 import Footer from "../components/footer.astro";
 import Base from "./base.astro";
-import { data } from "../utils/yaml";
+import data from '../var/data';
+
 
 const { contact } = data as { contact: string };
 const { children, slug } = Astro.props as Props;

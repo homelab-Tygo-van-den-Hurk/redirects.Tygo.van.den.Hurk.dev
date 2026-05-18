@@ -1,11 +1,15 @@
-# Put the keys in in alphabetic order. These will correspond to the path and
-# redirection URL. So `GitHub.Personal: https://github.com/Tygo-van-den-Hurk`
-# will become `/github/personal` which will redirect to the provided 
-# URL: `https://github.com/Tygo-van-den-Hurk`. Keys are transformed
-# automatically to lowercase and invalid characters will be mapped to
-# hyphens (`-`). An object in an object will cause a subdirectory. So like
-# before `GitHub`.`Personal` becomes `/GitHub/Personal`.
+import YAML from 'yaml';
 
+/**
+ * Put the keys in in alphabetic order. These will correspond to the path and
+ * redirection URL. So `GitHub.Personal: https://github.com/Tygo-van-den-Hurk`
+ * will become `/github/personal` which will redirect to the provided 
+ * URL: `https://github.com/Tygo-van-den-Hurk`. Keys are transformed
+ * automatically to lowercase and invalid characters will be mapped to
+ * hyphens (`-`). An object in an object will cause a subdirectory. So like
+ * before `GitHub`.`Personal` becomes `/GitHub/Personal`.
+ */
+const content = /* YAML */ `
 About: https://tygo.van.den.hurk.dev/#about
 Apple Music: https://music.apple.com/profile/St_H
 Behance: https://www.behance.net/6301702c
@@ -31,3 +35,12 @@ School Projects: https://github.com/school-tygo-van-den-hurk
 Snapchat: https://www.snapchat.com/add/tygo2502
 StackOverflow: https://stackoverflow.com/users/17113615/st-h
 Steam: https://steamcommunity.com/id/tygo-van-den-hurk/
+` as const;
+
+/** A node in the directory structure. */
+export interface YamlNode {
+  [key: string]: YamlNode | string;
+};
+
+/** The data stored in the YAML file. */
+export default YAML.parse(content) as YamlNode;
