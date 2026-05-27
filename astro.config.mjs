@@ -4,14 +4,13 @@ import tailwindcss from '@tailwindcss/vite';
 import YAML from 'yaml';
 import { fileURLToPath } from 'node:url';
 
-const srcPath = fileURLToPath(new URL('./src', import.meta.url));
-
 // https://astro.build/config
 export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '#src': srcPath,
+        '#repo': fileURLToPath(import.meta.url),
+        '#src': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
     plugins: [

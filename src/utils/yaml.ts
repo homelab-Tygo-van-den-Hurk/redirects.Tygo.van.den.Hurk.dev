@@ -1,5 +1,5 @@
 // @ts-ignore
-import data from '#src/redirects.yaml';
+import data from '#repo/redirects.yaml';
 
 export interface YamlNode {
   [key: string]: YamlNode | string;
