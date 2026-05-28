@@ -1,9 +1,7 @@
 ---
 import Footer from "#src/components/footer.astro";
 import Base from "#src/layouts/base.astro";
-import data from '#src/utils/yaml';
 
-const { contact } = data as { contact: string };
 const { children, slug } = Astro.props as Props;
 
 export interface Props {
@@ -28,7 +26,7 @@ export interface Props {
       Howdy there! From here, you can click on any of the links to get
       where you're supposed to be! As more links become available they'll
       show up here! If you feel like there's one that's obviously missing,
-      then you can always <a href={contact} class="text-accent hover:underline">get in touch</a>.
+      then you can always <a href="/contact" class="text-accent hover:underline">get in touch</a>.
     </p>
   </header>
   <main class="content-width mx-auto mt-8">
