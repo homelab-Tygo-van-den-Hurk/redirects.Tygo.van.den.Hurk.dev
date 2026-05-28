@@ -35,7 +35,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <slot name="head" />
   </head>
-  <body class=`bg-background-0 w-screen h-screen flex items-center justify-center flex-col ${classNames ?? ''}` ..rest>
+  <body class=`bg-background-0 w-screen min-h-screen flex items-center justify-center flex-col py-16 ${classNames ?? ''}` ..rest>
     <slot />
   </body>
 </html>
