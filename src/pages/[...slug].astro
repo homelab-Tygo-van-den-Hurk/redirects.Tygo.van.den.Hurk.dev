@@ -11,7 +11,9 @@ export async function getStaticPaths() {
 
   function normalizeSegment(key: string) {
     return key
+      .trim()
       .toLowerCase()
+      .replace(/^\.+/, '')
       .replaceAll(/[ @#%$!/_]/g, '-')
       .replaceAll(/-+/g, '-');
   }
@@ -55,11 +57,10 @@ export async function getStaticPaths() {
 
   const flat = flatten(data);
 
-  // ROOT NODE (this is the missing piece)
   const rootChildren = Object.fromEntries(
     flat
       .filter(e => e.type === 'node' || e.type === 'leaf')
-      .filter(e => !e.slug.includes('/', 1)) // only first-level children
+      .filter(e => !e.slug.includes('/', 1))
       .map(e => [e.name, e.slug])
   );
 

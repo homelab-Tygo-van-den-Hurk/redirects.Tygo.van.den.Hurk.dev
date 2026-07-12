@@ -1,10 +1,41 @@
-# Put the keys in in alphabetic order. These will correspond to the path and
-# redirection URL. So `GitHub.Personal: https://github.com/Tygo-van-den-Hurk`
-# will become `/github/personal` which will redirect to the provided 
-# URL: `https://github.com/Tygo-van-den-Hurk`. Keys are transformed
-# automatically to lowercase and invalid characters will be mapped to
-# hyphens (`-`). An object in an object will cause a subdirectory. So like
-# before `GitHub`.`Personal` becomes `/GitHub/Personal`.
+# = Redirection Station
+#
+# == How to use
+#
+# Please put the keys in in alphabetic order. These will correspond to the path
+# and redirection URL. So the object:
+#
+# ```Yaml
+# LeetCode: https://leetcode.com/u/Tygo-van-den-Hurk/
+# GitHub:
+#   Personal: https://github.com/Tygo-van-den-Hurk
+#   School: https://github.com/school-Tygo-van-den-Hurk
+# ```
+#
+# Will produce the following pages:
+#
+# ```Text
+# /leetcode         => https://leetcode.com/u/Tygo-van-den-Hurk/
+# /github/personal  => https://github.com/Tygo-van-den-Hurk
+# /github/school    => https://github.com/school-Tygo-van-den-Hurk
+# ```
+#
+# Object key is the way it's displayed on root nodes, the program automatically
+# transforms the strings into appropriate slugs. The transformation includes:
+#
+# - replacing illegal characters with hyphens (`-`),
+# - transforming the string into lowercase,
+# - and finally, replacing neighboring hyphens with only one hyphen.
+#
+# An object in an object will cause a subdirectory. So just like in the example
+# The `GitHub` object with entry `Personal` becomes `/GitHub/Personal`. 
+#
+# == Hiding Links
+#
+# Add a dot '.' before an entry to make it hidden. This way it will not be
+# discovered when it shows all possible children. This can be used for legacy
+# links that should keep working, but should be discovered and spread.
+#
 
 About: https://tygo.van.den.hurk.dev/#about
 Apple Music: https://music.apple.com/profile/St_H
@@ -24,7 +55,7 @@ GitLab:
   Personal: https://gitlab.com/Tygo-van-den-Hurk
   School: https://gitlab.com/school-Tygo-van-den-Hurk
 Instagram: https://www.instagram.com/tygo.van.den.hurk/
-LeedCode: /leetcode # Deprecated: I made a typo a LONG time ago
+.LeedCode: /leetcode # Deprecated: I made a typo a LONG time ago
 LeetCode: https://leetcode.com/u/Tygo-van-den-Hurk/
 Linkedin: https://www.linkedin.com/in/tygo-van-den-hurk
 Portfolio: https://tygo.van.den.hurk.dev/
