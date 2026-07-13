@@ -1,6 +1,7 @@
 ---
 import '#src/styles/global.css';
-import arrow from '#src/assets/redirect.responsive.svg'
+import arrow from '#src/assets/redirect.responsive.svg';
+import Footer from  '#src/components/footer.astro';
 
 /** The properties each page must have. */
 export interface Props {
@@ -8,12 +9,15 @@ export interface Props {
   description?: string;
   /** The title of the page. */
   title?: string;
+  /** Wether or not to show the footer at the bottom of the page. */
+  footer?: boolean;
 }
 
 const {
   title = "Redirection Station | Tygo van den Hurk",
   description = "Select your destination! from here, you can select any place you'd like to go! And you're be redirected there!!",
   class: classNames = "",
+  footer = true,
   ...rest
 } = Astro.props as Props & astroHTML.JSX.HtmlHTMLAttributes;
 ---
@@ -35,7 +39,10 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <slot name="head" />
   </head>
-  <body class=`bg-background-0 w-screen min-h-screen flex items-center justify-center flex-col py-16 ${classNames ?? ''}` ..rest>
-    <slot />
+  <body class=`bg-background-0 w-screen min-h-dvh flex flex-col ${classNames ?? ''}` ..rest>
+    <div class="flex-1 flex flex-col items-center justify-center py-16 w-full">
+      <slot />
+    </div>
+    {footer && <Footer class="py-8 mx-auto" />}
   </body>
 </html>

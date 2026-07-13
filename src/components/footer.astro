@@ -1,8 +1,16 @@
 ---
 const currentYear = new Date().getFullYear();
+
+/** The properties The `Footer` accepts. */
+export interface Props {
+  /** CSS class names to add to the main container as well */
+  class?: string;
+}
+
+const { class: classNames = "" } = Astro.props as Props;
 ---
 
-<footer class="content-width pt-10">
+<footer class=`content-width pt-10 ${classNames}`>
   <p class="text-center text-text">
     <span>Copyright &copy; 2023-{currentYear}</span>
     <span class="mx-2">&middot;</span>
