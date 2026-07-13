@@ -37,8 +37,9 @@ export interface Props {
         >Go Back</a>
       }
     </div>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-      {Object.keys(children).filter(child => !child.startsWith('.')).map(name => <li>
+    <ul class="flex flex-wrap justify-center gap-4 mt-4">
+      {Object.keys(children).filter(child => !child.startsWith('.')).map(name => 
+        <li class="w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(25%-0.75rem)]">
           <a href={children[name]} 
             class="block p-1 rounded-xl border border-accent bg-background-1 hover:bg-accent transition-all text-accent hover:text-title hover:border-title text-center w-full"
           >
