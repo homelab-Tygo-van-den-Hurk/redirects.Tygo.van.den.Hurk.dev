@@ -1,21 +1,22 @@
 ---
 import Base from '#src/layouts/base.astro';
 import Footer from '#src/components/footer.astro';
-import Arrow from '#src/assets/redirect.responsive.svg';
+import Error from '#src/assets/error.svg';
 ---
 
 <Base title="404: Not Found">
   <main class="text-center">
-    <Arrow class="w-64 aspect-square mx-auto" />
-    <h1 class="text-4xl font-bold font-serif text-title mb-6 text-center">
+    <Error class="w-64 h-auto aspect-square mx-auto" />
+    <h1 class="mt-4 text-4xl font-bold font-serif text-title mb-6 text-center">
       404: Page not found
       <span class="block w-12 h-0.5 bg-accent mx-auto mt-4"></span>
     </h1>
-    <p class="text-text">
-      Page not found. I recommend going
-      <a href="/" class="text-accent">
-        home
-      </a>.
+    <p class="text-text max-w-3xl mx-auto">
+      This page could not found. If you found this broken link somewhere, please
+      <a href="/contact" class="text-accent hover:underline"> get in touch
+      </a> and mention where you found it. Then I can fix it. Other then that
+      there's nothing to do except going 
+      <a href="/" class="text-accent hover:underline">home</a>.
     </p>
   </main>
   <Footer />
