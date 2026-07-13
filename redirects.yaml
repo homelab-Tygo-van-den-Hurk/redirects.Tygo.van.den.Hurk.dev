@@ -1,5 +1,10 @@
 # = Redirection Station
 #
+# When adding pages to this file, you sign a contract with yourself to always
+# keep that key in, and not remove it, breaking those links in the process.
+# There are tools to deal with links you no longer want, but you have to keep
+# them in regardless unless you're 100% sure there is no instance in the wild.
+#
 # == How to use
 #
 # Please put the keys in in alphabetic order. These will correspond to the path
@@ -35,6 +40,18 @@
 # Add a dot '.' before an entry to make it hidden. This way it will not be
 # discovered when it shows all possible children. This can be used for legacy
 # links that should keep working, but should be discovered and spread.
+#
+# An example of this is when I made a typo in `LeetCode` instead writing:
+# `LeedCode`. Since I don't remember if this link exists in the wild, I have
+# to ensure it will continue to work. So I added the fixed spelling and
+# deprecated the typo version:
+#
+# ```Yaml
+# .LeedCode: /leetcode
+# LeetCode: ...
+# ```
+# Now the leedCode version is hidden, but will redirect to the same page as the
+# `LeetCode` entry. Ensuring that no link was broken in the process.
 #
 
 About: https://tygo.van.den.hurk.dev/#about
