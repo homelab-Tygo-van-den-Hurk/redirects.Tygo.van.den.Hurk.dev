@@ -1,4 +1,54 @@
-# redirects.Tygo.van.den.Hurk.dev
+<div align="center">
+  <br>
+  <a href="https://redirects.Tygo.van.den.Hurk.dev/">
+    <picture>
+      <img src="src/assets/redirect.responsive.svg" 
+      width="200px" alt="The redirection logo">
+    </picture>
+  </a>
+  <br>
+  <!--~###################################~-->
+  <!--~####    Open issues and PRs    ####~-->
+  <!--~###################################~-->
+  <a href="https://github.com/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/issues?q=is%3Aissue%20state%3Aopen%20label%3Afix">
+    <picture>
+      <source srcset="https://img.shields.io/github/issues/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/fix?style=flat&labelColor=eff1f5&color=5278c5&logoColor=5E2751&label=Bug%20Reports" media="(prefers-color-scheme: light)" />
+      <img src="https://img.shields.io/github/issues/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/fix?style=flat&labelColor=303446&color=789ee8&logoColor=8F5C86&label=Bug%20Reports" alt="open bug reports" />
+    </picture>
+  </a>
+  <a href="https://github.com/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/issues?q=is%3Aissue%20state%3Aopen%20label%3Afeat">
+    <picture>
+      <source srcset="https://img.shields.io/github/issues/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/feat?style=flat&labelColor=eff1f5&color=5278c5&logoColor=5E2751&label=Feature%20Requests" media="(prefers-color-scheme: light)" />
+      <img src="https://img.shields.io/github/issues/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/feat?style=flat&labelColor=303446&color=789ee8&logoColor=8F5C86&label=Feature%20Requests" alt="open feature requests" />
+    </picture>
+  </a>
+  <br>
+  <!--~###################################~-->
+  <!--~####     Repository Stats      ####~-->
+  <!--~###################################~-->
+  <a href="./LICENSE">
+    <picture>
+      <source srcset="https://img.shields.io/github/license/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&labelColor=eff1f5&color=5278c5&logoColor=5E2751&label=Licence" media="(prefers-color-scheme: light)" />
+      <img src="https://img.shields.io/github/license/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&labelColor=303446&color=789ee8&logoColor=8F5C86&label=Licence" alt="The Repository License badge" />
+    </picture>
+  </a>
+  <a href="https://github.com/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/stargazers">
+    <picture>
+      <source srcset="https://img.shields.io/github/stars/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&labelColor=eff1f5&color=5278c5&label=Stars" media="(prefers-color-scheme: light)" />
+      <img src="https://img.shields.io/github/stars/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&labelColor=303446&color=789ee8&label=Stars" alt="amount of stars on GitHub" />
+    </picture>
+  </a>
+  <a href="https://github.com/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev/releases">
+  <picture>
+      <source srcset="https://img.shields.io/github/release/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&display_name=release&label=Release&labelColor=eff1f5&color=5278c5" media="(prefers-color-scheme: light)" />
+      <img src="https://img.shields.io/github/release/homelab-Tygo-van-den-Hurk/redirects.Tygo.van.den.Hurk.dev?style=flat&display_name=release&label=Release&labelColor=303446&color=789ee8" alt="newest release" />
+  </picture>
+  </a>
+  <br>
+</div>
+<br>
+
+# [redirects.Tygo.van.den.Hurk.dev](https://redirects.Tygo.van.den.Hurk.dev/)
 
 This site is to prevent my links from being non-DRY. Now, if I want a link to
 my personal GitHub, all I need to do is add a link to this site in it's place.
